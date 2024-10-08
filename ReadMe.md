@@ -14,7 +14,7 @@ Ce projet permet de crypter et de déchiffrer des images ainsi que des textes en
 ## Arborescence du projet
 
 ```
-Cryptag_img_text/
+Cryptage_img_text/
 │
 ├── app/
 │   ├── __init__.py                # Fichier pour marquer le répertoire comme un package
