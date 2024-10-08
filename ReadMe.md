@@ -1,119 +1,106 @@
 # Projet de Cryptage d'Images et de Textes
 
+## Table des matières
+- [Description](#description)
+- [Fonctionnalités](#fonctionnalités)
+- [Structure du projet](#structure-du-projet)
+- [Installation](#installation)
+- [Utilisation](#utilisation)
+- [Tests](#tests)
+- [Dépendances](#dépendances)
+- [Contribution](#contribution)
+- [Licence](#licence)
+
 ## Description
 
-Ce projet permet de crypter et de déchiffrer des images ainsi que des textes en utilisant des techniques simples pour les images et la bibliothèque `cryptography` pour les textes. Une interface graphique interactive a été développée en utilisant **Streamlit**, ce qui permet une interaction facile via un navigateur.
+Ce projet permet de crypter et de déchiffrer des images et des textes en utilisant des techniques de cryptage symétrique avec la bibliothèque `cryptography` (via Fernet). Une interface graphique interactive a été développée avec Streamlit, permettant une utilisation facile via une interface web.
 
 ## Fonctionnalités
 
-- **Cryptage d'images** : Charger une image, la convertir en niveaux de gris et la crypter.
-- **Décryptage d'images** : Récupérer l'image cryptée et la déchiffrer.
-- **Cryptage et déchiffrement de textes** : Crypter un texte avec une clé secrète générée, puis déchiffrer ce texte avec la même clé.
-- **Téléchargement des résultats** : Télécharger les résultats cryptés (texte ou image) dans des fichiers séparés.
+- Cryptage et décryptage d'images avec une clé Fernet
+- Cryptage et déchiffrement de textes avec une clé secrète générée
+- Téléchargement des résultats cryptés (texte ou image)
+- Interface utilisateur conviviale via Streamlit
 
-## Arborescence du projet
+## Structure du projet
 
 ```
 Cryptage_img_text/
-│
 ├── app/
-│   ├── __init__.py                # Fichier pour marquer le répertoire comme un package
-│   ├── cryptage_image.py           # Fonctions pour le cryptage d'image
-│   └── cryptage_texte.py           # Fonctions pour le cryptage et déchiffrement de texte
-│
-├── images/                         # Contient les images utilisées pour le cryptage
-│   └── example.jpg                 # Exemple d'image à utiliser pour les tests
-│
-├── tests/                          # Contient les fichiers de tests unitaires
-│   ├── test_cryptage_image.py      # Tests pour le cryptage d'image
-│   └── test_cryptage_texte.py      # Tests pour le cryptage et déchiffrement de texte
-│
-├── app_streamlit.py                # Interface graphique développée avec Streamlit
-├── README.md                       # Ce fichier README
-├── requirements.txt                # Liste des dépendances
+│   ├── __init__.py
+│   ├── cryptage_image.py
+│   └── cryptage_texte.py
+├── images/
+│   └── example.jpg
+├── tests/
+│   ├── test_cryptage_image.py
+│   └── test_cryptage_texte.py
+├── app_streamlit.py
+├── README.md
+├── requirements.txt
 └── .github/
     └── workflows/
-        └── python-app.yml          # Workflow GitHub Actions pour automatiser les tests
+        └── python-app.yml
 ```
 
 ## Installation
 
 ### Prérequis
-
 - Python 3.x
-- pip (gestionnaire de paquets pour Python)
+- pip
 
-### Étapes d'installation
-
-1. Clonez le projet depuis GitHub :
+### Étapes
+1. Cloner le projet :
    ```bash
    git clone <url_du_dépôt>
    cd ImageTextCryptProject
    ```
-
-2. Installez les dépendances du projet :
+2. Installer les dépendances :
    ```bash
    pip install -r requirements.txt
    ```
-
-3. (Facultatif) Si vous voulez tester l'application localement avec l'interface Streamlit, exécutez la commande suivante :
+3. Lancer l'application (optionnel) :
    ```bash
    streamlit run app_streamlit.py
    ```
 
 ## Utilisation
 
-### Interface graphique avec Streamlit
+### Interface Streamlit
+- **Cryptage d'images** : Chargez une image, générez une clé Fernet, cryptez l'image.
+- **Décryptage d'images** : Utilisez la même clé pour décrypter l'image.
+- **Cryptage/Déchiffrement de texte** : Entrez du texte, générez une clé, cryptez/décryptez.
+- **Téléchargement** : Téléchargez les résultats cryptés ou décryptés.
 
-L'interface vous permet de :
-
-- Crypter et déchiffrer des textes :
-  - Entrez un texte à crypter.
-  - Une clé secrète est générée automatiquement.
-  - Utilisez la même clé pour déchiffrer le texte plus tard.
-
-- Crypter une image :
-  - Chargez une image dans l'interface.
-  - L'image est convertie en niveaux de gris, puis cryptée.
-
-### Lancement de l'application
-
-Pour lancer l'application avec Streamlit, exécutez :
-
+### Lancement
 ```bash
 streamlit run app_streamlit.py
 ```
 
-## Tests unitaires
+## Tests
 
-Les tests sont inclus dans le projet pour valider les fonctionnalités de cryptage et déchiffrement des images et des textes.
-
-Pour exécuter les tests, utilisez :
-
+Exécutez les tests unitaires avec :
 ```bash
 pytest
 ```
 
-## Tests automatisés avec GitHub Actions
-
-Le projet est configuré avec GitHub Actions pour exécuter automatiquement les tests à chaque push ou pull request. Le workflow se trouve dans `.github/workflows/python-app.yml`.
+Les tests sont automatiquement exécutés via GitHub Actions à chaque push ou pull request.
 
 ## Dépendances
 
-Le projet utilise les bibliothèques suivantes :
-
-- streamlit
+- Streamlit
 - cryptography
+- Pillow (PIL)
 - numpy
 - matplotlib
 - pytest
 
-Toutes les dépendances sont listées dans le fichier `requirements.txt`.
+Voir `requirements.txt` pour la liste complète.
 
 ## Contribution
 
-Les contributions sont les bienvenues ! Si vous souhaitez proposer des améliorations ou corriger des bugs, n'hésitez pas à ouvrir une issue ou une pull request.
+Les contributions sont bienvenues ! N'hésitez pas à ouvrir une issue ou une pull request pour des améliorations ou des corrections.
 
 ## Licence
 
-Ce projet est sous licence MIT. Consultez le fichier LICENSE pour plus de détails.
+Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.

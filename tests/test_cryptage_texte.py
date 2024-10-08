@@ -1,10 +1,10 @@
 from app.cryptage_texte import generer_cle, crypter_texte, dechiffrer_texte
 
 def test_generer_cle():
-    # Vérifier que la clé générée n'est pas None
+    # Bien vérifier que la clé générée n'est pas None
     cle = generer_cle()
     assert cle is not None
-    assert len(cle) > 0  # La clé doit avoir une longueur non nulle
+    assert len(cle) > 0  # La clé doit avoir une longueur non nul
 
 def test_crypter_dechiffrer_texte():
     # Générer une clé
